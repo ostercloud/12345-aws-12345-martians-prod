@@ -3,9 +3,10 @@ variable "aws_region" {
 }
 
 variable "account_ids" {
-  default = ""
+  type = "list"
+  default = []
 }
 
-variable "environmnet" {
-  default = "${terraform.workspace}"
+variable "environment" {
+   default = "martian-prod"
 }

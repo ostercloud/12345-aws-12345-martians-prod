@@ -17,7 +17,7 @@ variable "aws_region" {
   default = ""
 }
 
-varaible "account_ids" {
+variable "account_ids" {
   default = ""
 }
 ```

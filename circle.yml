@@ -1,0 +1,49 @@
+machine:
+  environment:
+    TERRAFORM_VER: 0.10.7
+    PATH: $PATH:$HOME/.local/bin:$HOME/bin
+
+dependencies:
+  override:
+    - |
+      if [[ ! -f ~/.local/bin/terraform ]]; then
+        mkdir -p ~/.local/bin
+        cd ~/.local/bin
+        wget "https://releases.hashicorp.com/terraform/${TERRAFORM_VER}/terraform_${TERRAFORM_VER}_linux_amd64.zip"
+        unzip *.zip
+        rm *.zip
+      fi
+  cache_directories:
+    - ~/.local/bin
+
+test:
+  pre:
+    - |
+      lint_failed="no"
+      for file in $(find . -name "*tf")
+      do
+        lines=$(terraform fmt -write=false -list=true ${file} | wc -l | sed 's/[^0-9]//g')
+        if [ ${lines} != "0" ]
+        then
+          echo "Please run terraform fmt ${file}"
+          lint_failed="yes"
+        fi
+      done
+      if [ ${lint_failed} != "no" ]; then exit 1; fi
+    - terraform init -input=false -backend=false -no-color
+    - |
+      validate_failed="no"
+      TF_DIRS=$(find $(pwd) -type f -iname "*.tf*" -exec dirname '{}' \; | grep -v ".terraform" | sort | uniq | xargs echo)
+      for DIR in $TF_DIRS
+      do
+        echo Processing $DIR
+        lines=$(terraform validate -input=false -check-variables=false -no-color $DIR | wc -l | sed 's/[^0-9]//g')
+        if [ ${lines} != "0" ]
+        then
+          echo "Please run terraform validate ${file}"
+          validate_failed="yes"
+        fi
+      done
+      if [ ${validate_failed} != "no" ]; then exit 1; fi
+ override:
+    - echo run a plan here

@@ -5,3 +5,7 @@ variable "aws_region" {
 variable "account_ids" {
   default = ""
 }
+
+variable "environmnet" {
+  default = "${terraform.workspace}"
+}

@@ -1,5 +1,5 @@
 # Martian Co
-Making planets, more betters. 
+Making planets more betters. 
 
 ## Usage
 This is a demo repo for training purposes. The prefered method of using this repo is to fork it so that you can edit and modify as you see fit. 

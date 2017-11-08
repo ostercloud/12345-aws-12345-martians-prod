@@ -3,10 +3,10 @@ variable "aws_region" {
 }
 
 variable "account_ids" {
-  type = "list"
+  type    = "list"
   default = []
 }
 
 variable "environment" {
-   default = "martian-prod"
+  default = "martian-prod"
 }

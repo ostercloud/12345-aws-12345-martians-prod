@@ -1,4 +1,4 @@
-![alt text]("https://circleci.com/gh/:owner/:repo.png?circle-token=:circle-token" "")
+[![CircleCI](https://circleci.com/gh/ostercloud/12345-aws-12345-martians-prod.svg?style=svg)](https://circleci.com/gh/ostercloud/12345-aws-12345-martians-prod)
 # Martian Co
 Making planets more betters. 
 

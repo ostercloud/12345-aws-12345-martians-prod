@@ -22,3 +22,9 @@ module "base_network" {
   public_subnets           = ["10.100.1.0/24", "10.100.2.0/24"]
   private_subnets          = ["10.100.101.0/24", "10.100.102.0/24"]
 }
+
+resource "aws_instance" "new-server" {
+  ami           = "ami-aa1b34cf"
+  instance_type = "t2.micro"
+  subnet_id     = "${module.base_network.public_subnets[0]}"
+}

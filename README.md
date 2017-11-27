@@ -26,7 +26,7 @@ variable "account_ids" {
 }
 ```
 ## Configuring Remote State
-This repo also configures a remote backedn for state storage in S3. YOu will need to perform the following steps before preforming a the `terraform init` command. 
+This repo also configures a remote backedn for state storage in S3. You will need to perform the following steps before preforming a the `terraform init` command. 
 
 Create an s3 bucket using the bucket name found in the terraform config block:
 ```
@@ -38,7 +38,7 @@ terraform {
   }
 }
 ```
-the default in this repo is `martian-prod-tfstate`. Enabling Encryption ont he bucket is highly recomended. 
+the default bucket name in this repo is `martian-prod-tfstate`. Enabling Encryption on the bucket is highly recomended. 
 
 ## Initialize
 After setting your credentials and creating the s3 bucket in your AWS Account, you should be able to initialize your terraform repo. 

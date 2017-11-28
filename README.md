@@ -25,6 +25,7 @@ variable "account_ids" {
   default = ""
 }
 ```
+You will need to set the `aws_region` to the region where you want to deploy resources, and set the `account_ids` to the account number for the AWS account you will be using. This is a security feature that makes sure you dont accidentally apply the wrong terraform config to the wrong account. 
 ## Configuring Remote State
 Prior to working with this repo, I would suggest getting familiar with terraform Remote states if you are note already. More information on them can be found here: [Remote States](./pre-work/01-Remote-States.md)
 
@@ -45,6 +46,6 @@ the default bucket name in this repo is `martian-prod-tfstate`. Since AWS S3 buc
 ## Initialize
 After setting your credentials and creating the s3 bucket in your AWS Account, you should be able to initialize your terraform repo. 
 Run `terraform init`
-You should be prompted to enter information that was excluded from the terraform configuration block, thi will include the AWS Region that you would like to use for the terraform backend (where your state file is located). 
+You should be prompted to enter information that was excluded from the terraform configuration block, this will include the AWS Region that you would like to use for the terraform backend (where your state file is located). 
 
 After that initialization is complete, you should be ready to begin working with terraform!

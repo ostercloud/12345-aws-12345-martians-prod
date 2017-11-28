@@ -26,6 +26,8 @@ variable "account_ids" {
 }
 ```
 ## Configuring Remote State
+Prior to working with this repo, I would suggest getting familiar with terraform Remote states if you are note already. More information on them can be found here: [Remote States](./pre-work/01-remote-states.md)
+
 This repo also configures a remote backedn for state storage in S3. You will need to perform the following steps before preforming a the `terraform init` command. 
 
 Create an s3 bucket using the bucket name configured in the terraform config block:

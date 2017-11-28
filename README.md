@@ -22,10 +22,11 @@ variable "aws_region" {
 }
 
 variable "account_ids" {
-  default = ""
+  type    = "list"
+  default = ["000000000"]
 }
 ```
-You will need to set the `aws_region` to the region where you want to deploy resources, and set the `account_ids` to the account number for the AWS account you will be using. This is a security feature that makes sure you dont accidentally apply the wrong terraform config to the wrong account. 
+You will need to set the `aws_region` to the region where you want to deploy resources, and set the `account_ids` to the account number for the AWS account you will be using. this is a list of ID's and can be set to more than one. This is a security feature that makes sure you dont accidentally apply the wrong terraform config to the wrong account. 
 ## Configuring Remote State
 Prior to working with this repo, I would suggest getting familiar with terraform Remote states if you are note already. More information on them can be found here: [Remote States](./pre-work/01-Remote-States.md)
 

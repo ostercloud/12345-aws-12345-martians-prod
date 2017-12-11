@@ -35,7 +35,7 @@ Prior to working with this repo, I would suggest getting familiar with terraform
 
 This repo also configures a remote backedn for state storage in S3. You will need to perform the following steps before preforming a the `terraform init` command. 
 
-Create an s3 bucket using the bucket name configured in the terraform config block:
+Create an s3 bucket using the bucket name configured in the terraform config block found in the main.tf:
 ```
 terraform {
   backend "s3" {

@@ -31,12 +31,10 @@ variable "account_ids" {
 ```
 You will need to set the `aws_region` to the region where you want to deploy resources, and set the `account_ids` to the account number for the AWS account you will be using. this is a list of ID's and can be set to more than one. This is a security feature that makes sure you dont accidentally apply the wrong terraform config to the wrong account. 
 
-Optionally you can create a new override file so that you dont have to edit any of the original file. Just create a file that end in `_override.tf` and terraform will use the variables and any other configs you set in there. More info here: https://www.terraform.io/docs/configuration/override.html
-
 ## Configuring Remote State
 Prior to working with this repo, I would suggest getting familiar with terraform Remote states if you are note already. More information on them can be found here: [Remote States](./pre-work/01-Remote-States.md)
 
-This repo also configures a remote backedn for state storage in S3. You will need to perform the following steps before preforming a the `terraform init` command. 
+This repo also configures a remote backend for state storage in S3. You will need to perform the following steps before preforming a the `terraform init` command. 
 
 Create an s3 bucket using the bucket name configured in the terraform config block found in the main.tf:
 ```
@@ -52,9 +50,9 @@ the default bucket name in this repo is `martian-prod-tfstate`. Since AWS S3 buc
 
 ## Initialize
 After setting your credentials and creating the s3 bucket in your AWS Account, you should be able to initialize your terraform repo. 
-Run `terraform init`
+Run `terraform init` from the root directory of this repo. 
 You should be prompted to enter information that was excluded from the terraform configuration block, this will include the AWS Region that you would like to use for the terraform backend (where your state file is located). 
 
-You will need to understand the difference between the init and apply commands. YOu can find more details on this page: https://www.terraform.io/intro/getting-started/build.html
+You will need to understand the difference between the init and apply commands. You can find more details on this page: https://www.terraform.io/intro/getting-started/build.html
 
 After that initialization is complete, you should be ready to begin working with terraform!

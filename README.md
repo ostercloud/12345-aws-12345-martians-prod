@@ -9,6 +9,9 @@ This is a demo repo for training purposes. The prefered method of using this rep
 You will need to have an up to date installation of Terrafrom before you begin working with this repo. Installation instructions can be found here: https://www.terraform.io/intro/getting-started/install.html
 
 ## AWS Credentials
+We will be using the AWS provider in order to deploy to and AWS account with terraform. Learn more about configuring this provider here:
+https://www.terraform.io/docs/providers/aws/
+
 In order for this repo to function, you must export your AWS account credentials as environment variables:
 ```
 export AWS_ACCESS_KEY_ID={your AWS Key here}
